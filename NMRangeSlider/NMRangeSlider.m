@@ -585,8 +585,8 @@ NSUInteger DeviceSystemMajorVersion() {
     self.lowerHandle.highlightedImage = self.lowerHandleImageHighlighted;
     self.lowerHandle.hidden = self.lowerHandleHidden;
     
-    self.lowerHandleAccessory.center =  CGPointMake(self.lowerCenter.x ,
-                                                    self.lowerCenter.y - self.accessoryOffset);
+    self.lowerHandleAccessory.center =  CGPointMake(self.lowerCenter.x - self.accessoryOffsetX,
+                                                    self.lowerCenter.y - self.accessoryOffsetY);
     
     
     // Layoput the upper handle
@@ -595,8 +595,8 @@ NSUInteger DeviceSystemMajorVersion() {
     self.upperHandle.highlightedImage = self.upperHandleImageHighlighted;
     self.upperHandle.hidden= self.upperHandleHidden;
     
-    self.upperHandleAccessory.center = CGPointMake(self.upperCenter.x ,
-                                                   self.upperCenter.y - self.accessoryOffset);
+    self.upperHandleAccessory.center = CGPointMake(self.upperCenter.x + self.accessoryOffsetX,
+                                                   self.upperCenter.y - self.accessoryOffsetY);
     
 }
 
@@ -682,8 +682,8 @@ NSUInteger DeviceSystemMajorVersion() {
             _upperHandle.highlighted=NO;
             [self bringSubviewToFront:_lowerHandle];
             
-            self.lowerHandleAccessory.center = CGPointMake(self.lowerCenter.x,
-                                                           self.lowerCenter.y - self.accessoryOffset);
+            self.lowerHandleAccessory.center = CGPointMake(self.lowerCenter.x - self.accessoryOffsetX,
+                                                           self.lowerCenter.y - self.accessoryOffsetY);
             
             
             [self setLowerValue:newValue animated:_stepValueContinuously ? YES : NO];
@@ -705,8 +705,8 @@ NSUInteger DeviceSystemMajorVersion() {
             _lowerHandle.highlighted=NO;
             [self bringSubviewToFront:_upperHandle];
             
-            self.upperHandleAccessory.center = CGPointMake(self.upperCenter.x ,
-                                                           self.upperCenter.y + self.accessoryOffset);
+            self.upperHandleAccessory.center = CGPointMake(self.upperCenter.x + self.accessoryOffsetX,
+                                                           self.upperCenter.y - self.accessoryOffsetY);
             
             [self setUpperValue:newValue animated:_stepValueContinuously ? YES : NO];
         }
